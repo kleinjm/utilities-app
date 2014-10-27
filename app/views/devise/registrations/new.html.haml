@@ -1,0 +1,11 @@
+#home.row.center-text.padding-top-60
+  %h1 Utilitizer
+  .row.fadded-bg
+    .col-md-2.col-md-offset-5.slightly-larger
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-horizontal' }) do |f|
+        = devise_error_messages!
+        = f.input :email, autofocus: true
+        = f.input :password, autocomplete: "off"
+        = f.input :password_confirmation, autocomplete: "off"
+        = f.submit "Sign up", class: "btn btn-primary btn-lg"
+      = link_to "Sign in", new_session_path(resource_name), class: "btn btn-default margin-top-20 margin-bottom-20"

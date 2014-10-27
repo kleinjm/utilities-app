@@ -1,0 +1,111 @@
+// Positioning
+.center-text{
+  text-align: center;
+}
+.center-element{
+  margin: 0 auto;
+}
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+.control-group{
+  margin-bottom: 5px;
+}
+.no-margin{
+  margin: 0 !important;
+}
+.no-margin-top{
+  margin-top: 0 !important;
+}
+.no-padding{
+  padding: 0 !important;
+}
+.half-width{
+  width: 50% !important;
+}
+.margin-bottom-20{
+  margin-bottom: 20px;
+}
+.margin-top-20{
+  margin-top: 20px;
+}
+.margin-top-60{
+  margin-top: 60px;
+}
+.padding-bottom-20{
+  padding-bottom: 20px;
+}
+.padding-top-20{
+  padding-top: 20px;
+}
+.padding-top-60{
+  padding-top: 60px;
+}
+
+// Fonts
+.light-weight{
+  font-weight: 300 !important;
+}
+.super-light-weight{
+  font-weight: 100;
+}
+.slightly-larger{
+  font-size: 1.2em;
+}
+
+// Elements
+.list-border-right{
+  border-right: 1px solid gray;
+  margin-right: 7%; // NOTE: probably remove this later
+}
+// this is any image with a bit of opacity to throw it to the bg
+.img-hazy{
+  opacity: .8;
+}
+// this is a hazy image that gets smoothly removed on hover
+.img-hazy-hover{
+  opacity: .8;
+  transition: opacity .8s ease;
+}
+.img-hazy-hover:hover{
+  opacity: 1;
+}
+// this is an alert without all the padding so it is tighter
+.alert-small{
+  padding: 0 0 0 5px !important;
+}
+.fadded-bg{
+  background: rgba(25, 25, 25, .5);
+  color: white;
+}
+
+// fix the outdate bootstrap classes for the timepicker
+.icon-chevron-up:before {
+  content: "\e113";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+// fix the outdate bootstrap classes for the timepicker
+.icon-chevron-down:before {
+  content: "\e114";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.bootstrap-timepicker-widget.dropdown-menu.open{
+  margin-left: 35%
+}

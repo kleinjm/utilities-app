@@ -1,0 +1,11 @@
+%ul#left-nav.nav.nav-pills.nav-stacked.nav-tabs{:role => "tablist"}
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#home", :role => "tab"} Home
+  %li
+    %a{"data-toggle" => "tab", :href => "#services", :role => "tab"} Services
+  %li
+    %a{"data-toggle" => "tab", :href => "#account", :role => "tab"} Account
+  %li
+    %a{"data-toggle" => "tab", :href => "#payment_methods", :role => "tab"} Payment Methods
+  %li
+    = link_to "Logout", destroy_user_session_path, :method => :delete

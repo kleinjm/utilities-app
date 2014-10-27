@@ -1,0 +1,57 @@
+// TODO: Divide this file up more!
+
+@import 'colors'; // all site colors
+// NOTE: May need thes later for variables and mixins
+// @import 'bootstrap_extend';
+// @import 'bootstrap_override';
+
+// Global Vaiables
+$footer-hieght: 80px; // fixed footer height. This does not interfere with responsiveness
+
+// Sizes. These should be imported from bootstrap but because of using the gem, it's not
+$small-screen: 768px;
+
+// Layouts Stuff
+html, body{
+  height: 100%;
+  background-color: $main-bg-color; // TODO: look up better way to override
+}
+.signed-out-bg{
+  background-image: url('bg-main.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+#top{
+  z-index: -10;
+  position: absolute;
+  top: 0;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -$footer-hieght;
+  // padding: 0 0 $footer-hieght; / TODO: not sure if we need this code
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: $footer-hieght;
+  background-color: $footer-bg-color;
+  color: #FFF;
+}
+
+// fix the outdate bootstrap class for the timepicker
+.icon-chevron-up:before {
+  content: "\e113";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}

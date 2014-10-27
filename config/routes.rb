@@ -1,4 +1,7 @@
 UtilitiesApp::Application.routes.draw do
+  # devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +51,14 @@ UtilitiesApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :controller => :home, :action => :index
+  authenticated :user do
+    # root :to => "dashboard#show"
+    root :controller => :home, :action => :index
+  end
+  devise_scope :user do
+    root to: "devise/registrations#new"
+  end
+
 
   # See how all your routes lay out with "rake routes"
 

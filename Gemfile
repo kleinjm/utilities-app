@@ -8,9 +8,14 @@ gem 'rails', '3.2.18'
 gem 'bootstrap-sass', '3.1.1.1'
 gem 'haml', '4.1.0.beta.1'
 gem 'jquery-rails', '3.1.1'
+gem 'simple_form'
+gem 'country_select'
 
 # Database
 gem 'pg', '0.17.1'
+
+# users
+gem 'devise', '~> 3.2.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +31,7 @@ end
 
 group :development do
   gem "better_errors", "1.1.0"
+  gem "binding_of_caller"
 end
 
 group :production do

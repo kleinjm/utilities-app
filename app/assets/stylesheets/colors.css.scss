@@ -1,0 +1,27 @@
+// Variables
+$top-nav-color: #f8f8f8;
+$main-bg-color: #F2F2F2;
+$footer-bg-color: #000;
+$sparc-blue: #428BC8;
+$header-link-color: #777777;
+$btn-primary: #428bca; // this is not overridding, it is copying from the bootstrap btn-primary
+
+// Classes
+.red{
+  background-color: #FF0040 !important;
+  color: white;
+  a{
+    color: white;
+  }
+}
+.green{
+  background-color: #33CC33 !important;
+  color: white;
+  a{
+    color: white;
+  }
+}
+
+.bg-white{
+  background-color: white;
+}
