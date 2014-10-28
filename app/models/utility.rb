@@ -1,3 +1,3 @@
 class Utility < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :name, :account_number
 end

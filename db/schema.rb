@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141027223056) do
-
-  create_table "payment_methods", :force => true do |t|
-    t.integer "user_id"
-    t.string  "type"
-    t.string  "carholders_name"
-    t.string  "cc_number"
-    t.string  "cc_security_code"
-    t.string  "experation_date"
-  end
+ActiveRecord::Schema.define(:version => 20141028154756) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,6 +32,11 @@ ActiveRecord::Schema.define(:version => 20141027223056) do
     t.string   "state"
     t.string   "zip"
     t.string   "phone_number"
+    t.string   "payment_type"
+    t.string   "carholders_name"
+    t.string   "cc_number"
+    t.string   "cc_security_code"
+    t.string   "experation_date"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

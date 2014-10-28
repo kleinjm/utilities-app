@@ -1,0 +1,14 @@
+%h1 Payment Methods
+.row
+  .col-md-4
+    .user-field Payment type
+    .user-field Carholders name
+    .user-field Cc number
+    .user-field Cc security code
+    .user-field Experation date
+  .col-md-4
+    .user-field= current_user.payment_type
+    .user-field= current_user.carholders_name
+    .user-field= current_user.cc_number
+    .user-field= current_user.cc_security_code
+    .user-field= current_user.experation_date

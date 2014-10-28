@@ -1,0 +1,22 @@
+%p#notice= notice
+- if @user.name.blank?
+  %h1 Account
+-else
+  %h1= @user.name
+.row
+  .col-md-4
+    .user-field Name
+    .user-field City
+    .user-field Address
+    .user-field State
+    .user-field Zip
+    .user-field Phone number
+  .col-md-4
+    .user-field= @user.name
+    .user-field= @user.city
+    .user-field= @user.address
+    .user-field= @user.state
+    .user-field= @user.zip
+    .user-field= @user.phone_number
+
+= link_to 'Edit', edit_user_path(@user), class: "btn btn-default margin-top-20"

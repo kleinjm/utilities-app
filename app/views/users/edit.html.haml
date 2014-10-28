@@ -1,0 +1,13 @@
+%h1 Editing Account
+.row
+  .col-md-5
+    = simple_form_for(@user) do |f|
+      = f.error_notification
+      = f.input :name
+      = f.input :address
+      = f.input :city
+      = f.input :state
+      = f.input :zip
+      = f.input :phone_number
+      = f.button :submit
+    = link_to 'Cancel', @user

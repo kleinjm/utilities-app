@@ -1,0 +1,18 @@
+%h1 Services
+- if @utilities.blank?
+  %em You currently have no services saved
+- else
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Account Number
+      %th
+      %th
+    - @utilities.each do |utility|
+      %tr
+        %td= utility.name
+        %td= utility.account_number
+        %td= link_to 'Edit', edit_utility_path(utility)
+        %td= link_to 'Destroy', utility, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'Add New Service', new_utility_path, class: "btn btn-default margin-top-20"

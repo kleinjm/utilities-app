@@ -1,0 +1,24 @@
+#utilities
+  %h1 New Service
+  .row
+    .col-md-5
+      = simple_form_for(@utility, :html => { :class => 'form-horizontal' }) do |f|
+        = f.error_notification
+        = f.input :name, label: "Provider"
+        .service-label Name
+        .service-field= current_user.name
+        .service-label Address
+        .service-field= current_user.address
+        = current_user.city
+        - if !current_user.city.blank?
+          ,
+        = current_user.state
+        = current_user.zip
+        = f.input :account_number
+        .service-label Email
+        .service-field= current_user.email
+        .service-label Payment Method
+        / .service-field= current_user.payment_method
+        %br 
+        = f.submit "Create Service", class: "btn btn-primary"
+      = link_to 'Back', utilities_path, class: "btn btn-default btn-sm margin-top-20"
