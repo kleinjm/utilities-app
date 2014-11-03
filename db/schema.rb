@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141028154756) do
+ActiveRecord::Schema.define(:version => 20141103171854) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20141028154756) do
     t.string   "carholders_name"
     t.string   "cc_number"
     t.string   "cc_security_code"
-    t.string   "experation_date"
+    t.datetime "experation_date"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20141028154756) do
     t.integer "user_id"
     t.string  "name"
     t.string  "account_number"
+    t.boolean "paid",           :default => false
   end
 
 end

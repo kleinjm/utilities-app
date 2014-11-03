@@ -9,6 +9,10 @@ UtilitiesApp::Application.routes.draw do
   end
   resources :utilities
 
+  namespace :home do
+    put :pay_utility
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

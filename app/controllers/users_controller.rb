@@ -40,6 +40,8 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @payment_edit = params[:payment_edit]
+    @payments = params[:payment_edit]
   end
 
 
@@ -50,8 +52,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Your account was successfully updated.' }
-        format.json { head :no_content }
+        if params[:payment_edit]
+          format.html { redirect_to payment_methods_user_path(@user), notice: 'Your payment methods were successfully updated.' }
+        else
+          format.html { redirect_to @user, notice: 'Your account was successfully updated.' }
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }

@@ -11,4 +11,6 @@
     .user-field= current_user.carholders_name
     .user-field= current_user.cc_number
     .user-field= current_user.cc_security_code
-    .user-field= current_user.experation_date
+    - if current_user.experation_date
+      .user-field= current_user.experation_date.strftime('%m/%Y')
+= link_to 'Edit', edit_user_path(user_id: @user, payment_edit: true), class: "btn btn-default margin-top-20"

@@ -60,7 +60,7 @@ class UtilitiesController < ApplicationController
 
     respond_to do |format|
       if @utility.update_attributes(params[:utility])
-        format.html { redirect_to @utility, notice: 'Utility was successfully updated.' }
+        format.html { redirect_to utilities_path, notice: 'Utility was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
   def utilities
     Utility.where(user_id: self.id)
   end
+
+  def has_payment_method
+    !(payment_type.blank? && carholders_name.blank? && cc_number.blank? && cc_security_code.blank? && experation_date.blank?)
+  end
+
+  def has_basic_info
+    !(name.blank? && city.blank? && address.blank? && state.blank? && zip.blank? && phone_number.blank?)
+  end
 end
