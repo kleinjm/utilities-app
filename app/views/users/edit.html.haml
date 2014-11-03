@@ -9,7 +9,6 @@
         = f.input :carholders_name, input_html: { :value => current_user.name }
         = f.input :cc_number
         = f.input :cc_security_code, :input_html => {:maxlength => 3, :style => 'width: 70px'}
-        / # = f.input :experation_date
         = f.input :experation_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 5, discard_day: true, order: [:month, :year], :input_html => {:style => 'width: 120px; float: left;'}
         = f.button :submit, "Update payment method", class: "margin-top-20"
       = link_to 'Cancel', @user
