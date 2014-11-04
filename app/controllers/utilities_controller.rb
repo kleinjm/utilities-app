@@ -2,7 +2,7 @@ class UtilitiesController < ApplicationController
   # GET /utilities
   # GET /utilities.json
   def index
-    @utilities = Utility.all
+    @utilities = current_user.utilities
 
     respond_to do |format|
       format.html # index.html.erb

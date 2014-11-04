@@ -1,5 +1,13 @@
-%h1 Home
-= notice
+%h1 Dashboard
+- if current_user.account_completion != 8
+  .alert.alert-info{ role: "alert" }
+    .progress.progress-striped.active
+      .progress-bar.progress-bar-striped{"data-transitiongoal" => (current_user.account_completion/8.0)*100, :role => "progressbar"}
+    Your account info is not yet complete!
+    = link_to "Click here", edit_user_path(current_user)
+    to finish filling out your account.
+- if notice
+  .alert.alert-success= notice
 - if @utilities.blank?
   %em 
     You currently do not have any services listed.
@@ -34,6 +42,6 @@
             .col-md-6
               = (Time.now + 30.days).strftime('%m/%d/%Y')
         .col-md-2
-          = link_to "Pay now", home_pay_utility_path(id: utility.id), method: :put, class: "btn btn-success font-white"
+          = link_to "Pay now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "btn btn-success font-white"
 - else
   %em You currently do not have any bills that need to be paid.

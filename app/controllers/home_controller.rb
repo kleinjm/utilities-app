@@ -5,14 +5,13 @@ class HomeController < ApplicationController
 
   def pay_utility
     @utility = Utility.find(params[:id])
+    @utility.update_attribute(:paid, params[:paid])
 
     respond_to do |format|
-      if @utility.update_attribute(:paid, true)
+      if params[:paid] == "true"
         format.html { redirect_to root_path, notice: 'You have successfully paid your bill!' }
-        format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @utility.errors, status: :unprocessable_entity }
+        format.html { redirect_to utilities_path, notice: 'For Demo: You have reset the payment for your bill' }
       end
     end
   end

@@ -8,11 +8,16 @@
       %th Account Number
       %th
       %th
+      %th For Demo
     - @utilities.each do |utility|
       %tr
         %td= utility.name
         %td= utility.account_number
         %td= link_to 'Edit', edit_utility_path(utility)
         %td= link_to 'Remove', utility, method: :delete, data: { confirm: 'Are you sure?' }
+        - if utility.paid
+          %td= link_to "Reset payment", home_pay_utility_path(id: utility.id, paid: false), method: :put
+        - else
+          %td
 %br
 = link_to 'Add New Service', new_utility_path, class: "btn btn-default margin-top-20"

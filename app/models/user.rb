@@ -21,4 +21,16 @@ class User < ActiveRecord::Base
   def has_basic_info
     !(name.blank? && city.blank? && address.blank? && state.blank? && zip.blank? && phone_number.blank?)
   end
+
+  # account has 8 fields including email and password
+  def account_completion
+    res = 2
+    res = res + 1 if !name.blank?
+    res = res + 1 if !city.blank?
+    res = res + 1 if !address.blank?
+    res = res + 1 if !state.blank?
+    res = res + 1 if !zip.blank?
+    res = res + 1 if !phone_number.blank?
+    res # res will be res/8 when looking to get the percentage
+  end
 end
