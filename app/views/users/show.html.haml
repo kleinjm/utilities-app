@@ -1,4 +1,5 @@
-%p#notice= notice
+- if !notice.blank?
+  .alert.alert-success= notice
 - if @user.name.blank?
   %h1 Account
 -else
