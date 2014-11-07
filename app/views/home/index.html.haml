@@ -15,7 +15,7 @@
 - elsif Utility.has_unpaid_bills(current_user)
   - @utilities.each do |utility|
     - if !utility.paid?
-      .well.well-sm.row
+      .well.well-sm.row.payment-due
         %h4= utility.name
         .col-md-6
           .row
@@ -40,8 +40,9 @@
             .col-md-4
               Due Date
             .col-md-6
-              = (Time.now + 30.days).strftime('%m/%d/%Y')
+              = (Time.now + 10.days).strftime('%m/%d/%Y')
         .col-md-2
           = link_to "Pay now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "btn btn-success font-white"
 - else
   %em You currently do not have any bills that need to be paid.
+#calendar.margin-top-20.margin-bottom-20

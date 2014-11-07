@@ -11,6 +11,10 @@ gem 'jquery-rails', '3.1.1'
 gem 'simple_form'
 gem 'country_select'
 
+# fullcalendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 # Database
 gem 'pg', '0.17.1'
 
