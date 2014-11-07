@@ -1,17 +1,29 @@
 = simple_form_for(@utility, :html => { :class => 'form-horizontal' }) do |f|
-  = f.error_notification
+  / = f.error_notification
+  - if !@utility.errors.blank?
+    .alert.alert-danger
+      - @utility.errors.each do |error|
+        %p 
+          Please provide the 
+          = error
   = f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }
   = f.input :name, label: "Provider", collection: [ "NStar", "National Grid", "Comcast"]
   .service-label Name
   .service-field= current_user.name
   .service-label Address
   .service-field= current_user.address
-  = current_user.city
   - if !current_user.city.blank?
-    ,
+    = succeed ',' do
+      = current_user.city
   = current_user.state
   = current_user.zip
-  = f.input :account_number
+
+  .service-label 
+    Account Number
+    %button.btn.btn-default.overlay.example-button.margin-bottom-4{ type: "button", data: { container: "body", toggle: "popover", placement: "left", content: "Vivamus sagittis lacus vel augue laoreet rutrum faucibus." }}
+      Example
+      .glyphicon.glyphicon-question-sign
+  = f.input :account_number, label: false
   .service-label Email
   .service-field= current_user.email
   .service-label Payment Method
@@ -19,7 +31,7 @@
   = select_tag :payment_type, options_for_select([["#{current_user.payment_type} ending in #{current_user.cc_number.last(4)}", "#{current_user.payment_type}"]]), class: "select optional form-control"
   .service-field.row
     .col-md-6
-      Payment type: 
+      Payment Type: 
     .col-md-6
       = current_user.payment_type
   .service-field.row

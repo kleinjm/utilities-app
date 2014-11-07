@@ -1,0 +1,12 @@
+#overlay-container
+  %hr.invisible
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1
+        %button.close.close-overlay{ type: "button" }
+          %span Close
+        #overlay-content
+          #nstar-example= image_tag "nstar.png"
+          #national-grid-example= image_tag "national_grid.png"
+          #comcast-example= image_tag "comcast.png"
+  %hr.invisible

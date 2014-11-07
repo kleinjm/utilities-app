@@ -11,6 +11,8 @@
   %body{ class: ("signed-out-bg" if !user_signed_in?)} 
     #top
     #wrap
+      .black-out
+      = render 'layouts/overlay'
       / = render "layouts/header"
       - if user_signed_in?
         .container

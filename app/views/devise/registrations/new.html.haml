@@ -6,6 +6,7 @@
         = devise_error_messages!
         = f.input :email, autofocus: true
         = f.input :password, autocomplete: "off"
-        = f.input :password_confirmation, autocomplete: "off"
-        = f.submit "Sign up", class: "btn btn-primary btn-lg"
-      = link_to "Sign in", new_session_path(resource_name), class: "btn btn-default margin-top-20 margin-bottom-20"
+        = f.label :password_confirmation, "Password Confirmation", class: "center-text"
+        = f.input :password_confirmation, autocomplete: "off", label: false
+        = f.submit "Sign Up", class: "btn btn-primary btn-lg"
+      = link_to "Sign In", new_session_path(resource_name), class: "btn btn-default margin-top-20 margin-bottom-20"

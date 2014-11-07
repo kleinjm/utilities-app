@@ -6,18 +6,33 @@
   %h1= @user.name
 .row
   .col-md-4
-    .user-field Name
-    .user-field City
-    .user-field Address
-    .user-field State
-    .user-field Zip
-    .user-field Phone number
+    .user-field.bold Name
   .col-md-4
     .user-field= @user.name
+.row
+  .col-md-4
+    .user-field.bold City
+  .col-md-4
     .user-field= @user.city
+.row
+  .col-md-4
+    .user-field.bold Address
+  .col-md-4
     .user-field= @user.address
+.row
+  .col-md-4
+    .user-field.bold State
+  .col-md-4
     .user-field= @user.state
+.row
+  .col-md-4
+    .user-field.bold Zip
+  .col-md-4
     .user-field= @user.zip
+.row
+  .col-md-4
+    .user-field.bold Phone Number
+  .col-md-4
     .user-field= @user.phone_number
 
 = link_to 'Edit', edit_user_path(@user), class: "btn btn-default margin-top-20"

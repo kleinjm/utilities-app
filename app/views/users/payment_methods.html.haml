@@ -3,16 +3,28 @@
 %h1 Payment Methods
 .row
   .col-md-4
-    .user-field Payment type
-    .user-field Carholders name
-    .user-field Cc number
-    .user-field Cc security code
-    .user-field Experation date
+    .user-field.bold Payment Type
   .col-md-4
     .user-field= current_user.payment_type
+.row
+  .col-md-4
+    .user-field.bold Carholder's Name
+  .col-md-4
     .user-field= current_user.carholders_name
+.row
+  .col-md-4
+    .user-field.bold Credit Card Number
+  .col-md-4
     .user-field= current_user.cc_number
+.row
+  .col-md-4
+    .user-field.bold Credit Card CVV Code
+  .col-md-4
     .user-field= current_user.cc_security_code
+.row
+  .col-md-4
+    .user-field.bold Expiration Date
+  .col-md-4
     - if current_user.experation_date
       .user-field= current_user.experation_date.strftime('%m/%Y')
 = link_to 'Edit', edit_user_path(user_id: @user, payment_edit: true), class: "btn btn-default margin-top-20"
