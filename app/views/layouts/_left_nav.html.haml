@@ -1,6 +1,6 @@
 %ul#left-nav.nav.nav-pills.nav-stacked.nav-tabs.margin-top-20{:role => "tablist"}
   %li{ class: ("active" if params[:controller] == "home")}
-    = link_to "Home", root_path
+    = link_to "Pending Bills", root_path
   %li{ class: ("active" if params[:controller] == "utilities")}
     = link_to "Services", utilities_path
   %li{ class: ("active" if params[:controller] == "users" && !@payments)}

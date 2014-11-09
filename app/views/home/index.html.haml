@@ -13,6 +13,7 @@
     You currently do not have any services listed.
   = link_to "Add a service?", new_utility_path
 - elsif Utility.has_unpaid_bills(current_user)
+  %h3 Pending Bills (#{@utilities.select{|u| !u.paid}.size})
   - @utilities.each do |utility|
     - if !utility.paid?
       .well.well-sm.row.payment-due
