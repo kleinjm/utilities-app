@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :payment_type, :carholders_name, :cc_number, :cc_security_code, :experation_date
   # attr_accessible :title, :body
 
-  def utilities
-    Utility.where(user_id: self.id)
-  end
+  has_many :utilities
 
   def has_payment_method
     !(payment_type.blank? && carholders_name.blank? && cc_number.blank? && cc_security_code.blank? && experation_date.blank?)
