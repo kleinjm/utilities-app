@@ -2,8 +2,8 @@
   %li{ class: ("active" if params[:controller] == "home")}
     = link_to root_path do
       Pending Bills 
-      - if @utilities.select{|u| !u.paid}.size > 0
-        %span.badge #{@utilities.select{|u| !u.paid}.size}
+      - if current_user.utilities.select{|u| !u.paid}.size > 0
+        %span.badge #{current_user.utilities.select{|u| !u.paid}.size}
   %li{ class: ("active" if params[:controller] == "utilities")}
     = link_to "Services", utilities_path
   %li{ class: ("active" if params[:controller] == "users" && !@payments)}
