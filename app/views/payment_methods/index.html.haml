@@ -1,6 +1,8 @@
 - if !notice.blank?
   .alert.alert-success= notice
 %h1 Payment Methods
+.well.well-sm
+  Use this tab to add, edit, or remove your payment information. If you choose to enter multiple credit cards, you will have the ability to associate a utility service with any one of the cards!
 - if current_user.payment_methods.blank?
   %em You currently do not have any payment methods
 - current_user.payment_methods.each do |payment_method|

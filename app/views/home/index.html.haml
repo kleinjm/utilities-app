@@ -6,9 +6,21 @@
 - if notice
   .alert.alert-success= notice
 - if @utilities.blank?
-  %em 
-    You currently do not have any services listed.
-  = link_to "Add a service?", new_utility_path
+  .well.well-sm
+    Welcome to Utilitizer! This application is a powerful tool that allows you to pay all of your online bills on one, single site. You have signed in with the following email address: On your left, you’ll see several tabs.
+    %ul
+      %li 
+        Use the 
+        = link_to "Services", utilities_path
+        tab to add a new utility service or update a current utility service. 
+      %li 
+        Use the 
+        = link_to "Account", user_path(current_user.id)
+        tab to update your personal information.
+      %li 
+        Use the 
+        = link_to "Payment Methods", payment_methods_path
+        tab to add and update your payment information.
 - elsif Utility.has_unpaid_bills(current_user)
   - @utilities.each do |utility|
     - if !utility.paid?
