@@ -16,7 +16,7 @@
         %td= utility.name
         %td= utility.account_number
         %td= link_to 'Edit', edit_utility_path(utility), class: "btn btn-default"
-        %td= link_to 'Delete', utility, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' }
+        %td= link_to 'Delete', utility, method: :delete, class: "btn btn-danger font-white", data: { confirm: 'Are you sure?' }
         - if utility.paid
           %td= link_to "Reset payment", home_pay_utility_path(id: utility.id, paid: false), method: :put
         - else
