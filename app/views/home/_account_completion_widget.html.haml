@@ -1,0 +1,7 @@
+- if current_user.account_completion != 8
+  .alert.alert-info{ role: "alert" }
+    .progress.progress-striped.active
+      .progress-bar.progress-bar-striped{"data-transitiongoal" => (current_user.account_completion/8.0)*100, :role => "progressbar"}
+    Your account info is not yet complete!
+    = link_to "Click here", edit_user_path(current_user)
+    to finish filling out your account.

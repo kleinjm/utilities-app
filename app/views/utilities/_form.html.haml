@@ -26,10 +26,9 @@
   = f.input :account_number, label: false
   .service-label Email
   .service-field= current_user.email
-  / # = f.input :payment_method, options_for_select([["#{current_user.payment_type} ending in #{current_user.cc_number.last(4)}", "#{current_user.payment_type}"]]), class: "select optional form-control"
-  / = f.association :payment_method, collection: current_user.payment_methods, selected: current_user.payment_methods.first, label_method: :select_box_display, class: "select optional form-control"
+  .service-label Payment Method
   = f.collection_select :payment_method_id, current_user.payment_methods, :id, :select_box_display, {}, {:class => "select optional form-control", :selected => @utility.payment_method}
-
+  %br
   .service-field.row
     .col-md-6
       Payment Type: 

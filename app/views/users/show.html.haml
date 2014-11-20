@@ -1,9 +1,7 @@
 - if !notice.blank?
   .alert.alert-success= notice
-- if @user.name.blank?
-  %h1 Account
--else
-  %h1= @user.name
+%h1 Account
+= render "home/account_completion_widget"
 .row
   .col-md-4
     .user-field.bold Name

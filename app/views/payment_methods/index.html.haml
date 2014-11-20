@@ -1,7 +1,7 @@
 - if !notice.blank?
   .alert.alert-success= notice
 %h1 Payment Methods
-- if @payment_methods.blank?
+- if current_user.payment_methods.blank?
   %em You currently do not have any payment methods
 - current_user.payment_methods.each do |payment_method|
   .row
