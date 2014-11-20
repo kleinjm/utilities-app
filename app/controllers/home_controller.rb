@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       if params[:paid] == "true"
-        format.html { redirect_to root_path, notice: 'You have successfully paid your bill!' }
+        format.html { redirect_to root_path, notice: "Your #{@utility.name} bill of $52.37 has been successfully paid!" }
       else
         format.html { redirect_to utilities_path, notice: 'For Demo: You have reset the payment for your bill' }
       end

@@ -1,4 +1,7 @@
-%h1 Dashboard
+%h1 
+  Pending Bills
+  - if (unpaid_bills = @utilities.select{|u| !u.paid}.size) > 0
+    %span.bold (#{unpaid_bills})
 - if current_user.account_completion != 8
   .alert.alert-info{ role: "alert" }
     .progress.progress-striped.active
@@ -13,9 +16,6 @@
     You currently do not have any services listed.
   = link_to "Add a service?", new_utility_path
 - elsif Utility.has_unpaid_bills(current_user)
-  %h3 
-    Pending Bills 
-    %span.bold (#{@utilities.select{|u| !u.paid}.size})
   - @utilities.each do |utility|
     - if !utility.paid?
       .well.well-sm.row.payment-due

@@ -1,4 +1,6 @@
 %h1 Services
+- if notice
+  .alert.alert-success= notice
 - if @utilities.blank?
   %em You currently have no services saved
 - else
