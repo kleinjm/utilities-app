@@ -27,27 +27,29 @@
   .service-label Email
   .service-field= current_user.email
   / # = f.input :payment_method, options_for_select([["#{current_user.payment_type} ending in #{current_user.cc_number.last(4)}", "#{current_user.payment_type}"]]), class: "select optional form-control"
-  = f.association :payment_method, collection: current_user.payment_methods, selected: current_user.payment_methods.first, label_method: :select_box_display, class: "select optional form-control"
+  / = f.association :payment_method, collection: current_user.payment_methods, selected: current_user.payment_methods.first, label_method: :select_box_display, class: "select optional form-control"
+  = f.collection_select :payment_method_id, current_user.payment_methods, :id, :select_box_display, {}, {:class => "select optional form-control", :selected => @utility.payment_method}
+
   .service-field.row
     .col-md-6
       Payment Type: 
-    .col-md-6
+    .col-md-6.selected_payment_type
       / # = current_user.payment_type
   .service-field.row
     .col-md-6
       Cardholder's Name: 
-    .col-md-6
+    .col-md-6.selected_cardholders_name
       / # = current_user.cardholders_name
   .service-field.row
     .col-md-6
       Card Number: 
-    .col-md-6
+    .col-md-6.selected_cc_number
       xxxx-xxxx-xxxx-
       / # = current_user.cc_number.last(4)
   .service-field.row
     .col-md-6
       Exp. Date: 
-    .col-md-6
+    .col-md-6.selected_exp_date
       / # = current_user.experation_date.strftime('%m/%Y')
   %br
   = f.submit class: "btn btn-primary"

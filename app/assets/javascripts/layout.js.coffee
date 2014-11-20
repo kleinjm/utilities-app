@@ -81,3 +81,20 @@ $(document).ready ->
     hide_overlay()
   $('.close-overlay').on 'click', () ->
     hide_overlay()
+
+  # update payment method stuff on service creation/edit page
+  update_utility_payment_method = () ->
+    id = parseInt($('#utility_payment_method_id').val()) || 1
+    $.getJSON "/payment_methods/" + id, (data) ->
+      $('.selected_payment_type').text(data["payment_type"])
+      $('.selected_cardholders_name').text(data["cardholders_name"])
+      $('.selected_cc_number').text(data["cc_number"])
+      $('.selected_exp_date').text(data["experation_date"])
+  
+  $('#utility_payment_method_id').change () ->
+    update_utility_payment_method()
+
+  update_utility_payment_method()
+
+
+
