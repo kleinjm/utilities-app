@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141103202336) do
+ActiveRecord::Schema.define(:version => 20141119233306) do
+
+  create_table "payment_methods", :force => true do |t|
+    t.string   "payment_type"
+    t.string   "cardholders_name"
+    t.string   "cc_number"
+    t.string   "cc_security_code"
+    t.date     "experation_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,11 +43,6 @@ ActiveRecord::Schema.define(:version => 20141103202336) do
     t.string   "state"
     t.string   "zip"
     t.string   "phone_number"
-    t.string   "payment_type"
-    t.string   "carholders_name"
-    t.string   "cc_number"
-    t.string   "cc_security_code"
-    t.date     "experation_date"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -46,7 +52,8 @@ ActiveRecord::Schema.define(:version => 20141103202336) do
     t.integer "user_id"
     t.string  "name"
     t.string  "account_number"
-    t.boolean "paid",           :default => false
+    t.boolean "paid",              :default => false
+    t.integer "payment_method_id"
   end
 
 end

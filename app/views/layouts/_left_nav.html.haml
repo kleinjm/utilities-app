@@ -6,9 +6,9 @@
         %span.badge #{current_user.utilities.select{|u| !u.paid}.size}
   %li{ class: ("active" if params[:controller] == "utilities")}
     = link_to "Services", utilities_path
-  %li{ class: ("active" if params[:controller] == "users" && !@payments)}
+  %li{ class: ("active" if params[:controller] == "users")}
     = link_to "Account", user_path(current_user.id)
-  %li{ class: ("active" if params[:controller] == "users" && @payments)}
-    = link_to "Payment Methods", payment_methods_user_path(current_user.id)
+  %li{ class: ("active" if params[:controller] == "payment_methods")}
+    = link_to "Payment Methods", payment_methods_path
   %li
     = link_to "Logout", destroy_user_session_path, :method => :delete

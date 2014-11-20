@@ -1,4 +1,7 @@
 UtilitiesApp::Application.routes.draw do
+  resources :payment_methods
+
+
   # devise_for :users
   devise_for :users, :controllers => { :registrations => "registrations" }
 

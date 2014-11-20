@@ -26,30 +26,29 @@
   = f.input :account_number, label: false
   .service-label Email
   .service-field= current_user.email
-  .service-label Payment Method
-  // this is a dummy field!
-  = select_tag :payment_type, options_for_select([["#{current_user.payment_type} ending in #{current_user.cc_number.last(4)}", "#{current_user.payment_type}"]]), class: "select optional form-control"
+  / # = f.input :payment_method, options_for_select([["#{current_user.payment_type} ending in #{current_user.cc_number.last(4)}", "#{current_user.payment_type}"]]), class: "select optional form-control"
+  = f.association :payment_method, collection: current_user.payment_methods, selected: current_user.payment_methods.first, label_method: :select_box_display, class: "select optional form-control"
   .service-field.row
     .col-md-6
       Payment Type: 
     .col-md-6
-      = current_user.payment_type
+      / # = current_user.payment_type
   .service-field.row
     .col-md-6
       Cardholder's Name: 
     .col-md-6
-      = current_user.carholders_name
+      / # = current_user.cardholders_name
   .service-field.row
     .col-md-6
       Card Number: 
     .col-md-6
       xxxx-xxxx-xxxx-
-      = current_user.cc_number.last(4)
+      / # = current_user.cc_number.last(4)
   .service-field.row
     .col-md-6
       Exp. Date: 
     .col-md-6
-      = current_user.experation_date.strftime('%m/%Y')
+      / # = current_user.experation_date.strftime('%m/%Y')
   %br
   = f.submit class: "btn btn-primary"
 = link_to 'Back', utilities_path, class: "btn btn-default btn-sm margin-top-20"

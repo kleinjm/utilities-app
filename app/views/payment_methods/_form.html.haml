@@ -1,0 +1,12 @@
+= simple_form_for(@payment_method, :html => { :class => 'form-vertical' }) do |f|
+  = f.error_notification
+  = f.input :payment_type, selected: ["Credit Card"], collection: ["Credit Card"], label: "Payment Type"
+  = f.input :cardholders_name, input_html: { :value => current_user.name }, label: "Cardholder's Name"
+  = f.input :cc_number, :input_html => {:maxlength => 16}, label: "Credit Card Number"
+  = f.input :cc_security_code, :input_html => {:maxlength => 3, :style => 'width: 70px'}, label: "Credit Card CVV Code"
+  = f.input :experation_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 5, discard_day: true, order: [:month, :year], :input_html => {:style => 'width: 120px; float: left;'}, label: "Expiration Date"
+  %br
+  %br
+  %br
+  = f.button :submit, "Save", class: "btn btn-primary"
+= link_to 'Cancel', payment_methods_path, class: "btn btn-default"

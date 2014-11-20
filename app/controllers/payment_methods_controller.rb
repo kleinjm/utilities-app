@@ -41,10 +41,11 @@ class PaymentMethodsController < ApplicationController
   # POST /payment_methods.json
   def create
     @payment_method = PaymentMethod.new(params[:payment_method])
+    @payment_method.user = current_user
 
     respond_to do |format|
       if @payment_method.save
-        format.html { redirect_to @payment_method, notice: 'Payment method was successfully created.' }
+        format.html { redirect_to payment_methods_path, notice: 'Payment method was successfully created.' }
         format.json { render json: @payment_method, status: :created, location: @payment_method }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class PaymentMethodsController < ApplicationController
 
     respond_to do |format|
       if @payment_method.update_attributes(params[:payment_method])
-        format.html { redirect_to @payment_method, notice: 'Payment method was successfully updated.' }
+        format.html { redirect_to payment_methods_path, notice: 'Payment method was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

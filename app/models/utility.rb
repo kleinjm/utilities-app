@@ -1,5 +1,7 @@
 class Utility < ActiveRecord::Base
-  attr_accessible :name, :account_number, :user_id
+  attr_accessible :name, :account_number, :user_id, :payment_method_id
+
+  belongs_to :payment_method
 
   validates :name, :account_number, presence: true
 

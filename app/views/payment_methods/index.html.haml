@@ -1,0 +1,41 @@
+- if !notice.blank?
+  .alert.alert-success= notice
+%h1 Payment Methods
+- if @payment_methods.blank?
+  %em You currently do not have any payment methods
+- current_user.payment_methods.each do |payment_method|
+  .row
+    .col-md-4
+      .user-field.bold Payment Type
+    .col-md-4
+      .user-field= payment_method.payment_type
+    .col-md-4
+      = link_to "Edit", edit_payment_method_path(payment_method), class: "btn btn-default btn-sm"
+  .row
+    .col-md-4
+      .user-field.bold Carholder's Name
+    .col-md-4
+      .user-field= payment_method.cardholders_name
+  .row
+    .col-md-4
+      .user-field.bold Credit Card Number
+    .col-md-4
+      .user-field= payment_method.cc_number
+  .row
+    .col-md-4
+      .user-field.bold Credit Card CVV Code
+    .col-md-4
+      .user-field= payment_method.cc_security_code
+  .row
+    .col-md-4
+      .user-field.bold Expiration Date
+    .col-md-4
+      - if payment_method.experation_date
+        .user-field= payment_method.experation_date.strftime('%m/%Y')
+  %hr
+%br
+= link_to "New Payment Method", new_payment_method_path, class: "btn btn-default margin-top-20"
+/ = link_to 'Edit', edit_user_path(user_id: @user, payment_edit: true), class: "btn btn-default margin-top-20"
+
+
+/ <%= link_to 'New Payment method', new_payment_method_path %>

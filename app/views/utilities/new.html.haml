@@ -4,10 +4,10 @@
     .alert.alert-warning 
       You have not completed filling out your basic information. Please first 
       = link_to "Complete account", edit_user_path(current_user)
-  - elsif !current_user.has_payment_method
+  - elsif current_user.payment_methods.blank?
     .alert.alert-warning 
       You have not completed filling out a payment method. Please first 
-      = link_to "Add a payment method", edit_user_path(current_user, payment_edit: true)
+      = link_to "Add a payment method", new_payment_method_path
   - else
     .row
       .col-md-5
