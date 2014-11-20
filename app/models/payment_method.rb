@@ -8,4 +8,8 @@ class PaymentMethod < ActiveRecord::Base
   def select_box_display
     "Credit card ending in #{cc_number.last(4)}"
   end
+
+  def obfuscated
+    "XXXX-XXXX-XXXX-#{cc_number.last(4)}"
+  end
 end

@@ -50,6 +50,8 @@
       Exp. Date: 
     .col-md-6.selected_exp_date
       / # = current_user.experation_date.strftime('%m/%Y')
+
   %br
-  = f.submit class: "btn btn-primary"
-= link_to 'Back', utilities_path, class: "btn btn-default btn-sm margin-top-20"
+  %br
+  = f.button :submit, "Save", class: "btn btn-primary"
+  = link_to 'Cancel', utilities_path, class: "btn btn-default"

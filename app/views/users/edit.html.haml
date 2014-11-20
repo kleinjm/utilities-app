@@ -9,5 +9,7 @@
       = f.input :state
       = f.input :zip, :input_html => { :maxlength => 5, class: "zip-input" }
       = f.input :phone_number, label: "Phone Number", :input_html => { :maxlength => 10, class: "phone-input" }
-      = f.button :submit
-    = link_to 'Cancel', @user
+    
+      %br
+      = f.button :submit, "Save", class: "btn btn-primary"
+      = link_to 'Cancel', user_path, class: "btn btn-default"
