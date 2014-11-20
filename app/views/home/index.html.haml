@@ -33,7 +33,7 @@
             .col-md-5
               Pay Method:
             .col-md-6
-              = current_user.payment_type
+              = PaymentMethod.find(utility.payment_method_id).select_box_display
         .col-md-4
           .row
             .col-md-5
@@ -45,7 +45,7 @@
             .col-md-6
               = (Time.now + 10.days).strftime('%m/%d/%Y')
         .col-md-2
-          = link_to "Pay Now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "btn btn-success font-white"
+          = link_to "Pay Now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "btn btn-success font-white", data: { confirm: "Pay #{utility.name} $52.37 now?" }
 - else
   %em You currently do not have any bills that need to be paid.
 #calendar.margin-top-20.margin-bottom-20

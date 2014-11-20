@@ -30,8 +30,8 @@ $(document).ready ->
 
   $(".phone-input").mask("999-999-9999")
   $(".zip-input").mask("99999")
-  $("#user_cc_number").mask("9999-9999-9999-9999")
-  $("#user_cc_security_code").mask("999")
+  $("#payment_method_cc_number").mask("9999-9999-9999-9999")
+  $("#payment_method_cc_security_code").mask("999")
 
 
   # hide all images

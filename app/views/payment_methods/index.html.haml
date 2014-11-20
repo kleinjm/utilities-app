@@ -11,6 +11,7 @@
       .user-field= payment_method.payment_type
     .col-md-4
       = link_to "Edit", edit_payment_method_path(payment_method), class: "btn btn-default btn-sm"
+      = link_to "Delete", payment_method_path(payment_method), class: "btn btn-danger btn-sm", method: :delete
   .row
     .col-md-4
       .user-field.bold Carholder's Name

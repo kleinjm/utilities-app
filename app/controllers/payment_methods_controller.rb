@@ -77,7 +77,7 @@ class PaymentMethodsController < ApplicationController
     @payment_method.destroy
 
     respond_to do |format|
-      format.html { redirect_to payment_methods_url }
+      format.html { redirect_to payment_methods_url, notice: "#{@payment_method.select_box_display} was successfully deleted." }
       format.json { head :no_content }
     end
   end
