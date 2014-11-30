@@ -58,7 +58,23 @@
             .col-md-6
               = (Time.now + 10.days).strftime('%m/%d/%Y')
         .col-md-2
-          = link_to "Pay Now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "#{'disabled' if utility.payment_method.blank?} btn btn-success font-white", data: { confirm: "Pay #{utility.name} $52.37 now?" }
+          = button_tag "Pay Now", class: "#{'disabled' if utility.payment_method.blank?} btn btn-success font-white", data: { toggle: "modal", target: "#confirm-payment-modal" }
+    #confirm-payment-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "confirm-payment-modal-label", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+              %span.sr-only Close
+            %h4#confirm-payment-modal-label.modal-title Modal title
+          .modal-body
+            - payment_method =  (utility.payment_method && utility.payment_method.select_box_display) || 0
+            A payment of 
+            %b $52.37 
+            will be sent to #{utility.name} using #{payment_method}.
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+            = link_to "Pay Now", home_pay_utility_path(id: utility.id, paid: true), method: :put, class: "btn btn-success font-white"
 - else
   %em You currently do not have any bills that need to be paid.
 #calendar.margin-top-20.margin-bottom-20
