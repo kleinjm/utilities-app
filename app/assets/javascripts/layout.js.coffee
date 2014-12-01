@@ -19,14 +19,14 @@ $(document).ready ->
         }
       ]
     })
-  # else
-  #   $("#calendar").fullCalendar({
-  #     header: {
-  #       left: '',
-  #       center: 'title',
-  #       right: 'today, prev,next'
-  #     }
-  #   })
+  else
+    $("#calendar").fullCalendar({
+      header: {
+        left: '',
+        center: 'title',
+        right: 'today, prev,next'
+      }
+    })
 
   $(".phone-input").mask("999-999-9999")
   $(".zip-input").mask("99999")
