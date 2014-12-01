@@ -29,3 +29,14 @@ $btn-primary: #428bca; // this is not overridding, it is copying from the bootst
 .font-white{
   color: white !important;
 }
+
+.blue-link{
+  color: blue;
+}
+.blue-link:visited{
+  color: blue;
+}
+.blue-link:hover{
+  color: black;
+  background-color: transparent;
+}

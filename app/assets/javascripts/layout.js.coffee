@@ -6,6 +6,7 @@ $(document).ready ->
   dd = today.getDate()
 
   if $('.payment-due').length > 0
+    d = new Date()
     $("#calendar").fullCalendar({
       header: {
         left: '',
@@ -13,20 +14,19 @@ $(document).ready ->
         right: 'today, prev,next'
       },
       events: [{
-              title: 'Payment Due',
-              start: '2014-11-' + (dd + 10).toString(),
-              description: 'This is a cool event'
-          }
-      ],
+          title: 'Payment Due',
+          start: '2014-12-' + (dd + 10).toString()
+        }
+      ]
     })
-  else
-    $("#calendar").fullCalendar({
-      header: {
-        left: '',
-        center: 'title',
-        right: 'today, prev,next'
-      }
-    })
+  # else
+  #   $("#calendar").fullCalendar({
+  #     header: {
+  #       left: '',
+  #       center: 'title',
+  #       right: 'today, prev,next'
+  #     }
+  #   })
 
   $(".phone-input").mask("999-999-9999")
   $(".zip-input").mask("99999")

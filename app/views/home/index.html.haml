@@ -42,11 +42,14 @@
               - if utility.payment_method.blank?
                 .bold
                   You have removed the payment method. Please 
-                  = link_to "add a payment method", new_payment_method_path
+                  = link_to "add a payment method", new_payment_method_path, class: "blue-link"
                   and 
-                  = link_to "edit the service", edit_utility_path(utility)
+                  = link_to "edit the service", edit_utility_path(utility), class: "blue-link"
               - else
                 = utility.payment_method.payment_type
+                %span ending in
+                %span= utility.payment_method.cc_number.last(4)
+                %span= link_to "Change Method", edit_utility_path(utility), class: "blue-link"
         .col-md-4
           .row
             .col-md-5
@@ -66,7 +69,7 @@
             %button.close{"data-dismiss" => "modal", :type => "button"}
               %span{"aria-hidden" => "true"} ×
               %span.sr-only Close
-            %h4#confirm-payment-modal-label.modal-title Modal title
+            %h4#confirm-payment-modal-label.modal-title Confirmation
           .modal-body
             - payment_method =  (utility.payment_method && utility.payment_method.select_box_display) || 0
             A payment of 
