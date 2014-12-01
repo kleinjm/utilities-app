@@ -6,6 +6,11 @@
 = render "home/account_completion_widget"
 .row
   .col-md-4
+    .user-field.bold Name
+  .col-md-4
+    .user-field= @user.name 
+.row
+  .col-md-4
     .user-field.bold Email
   .col-md-4
     .user-field= @user.email   
