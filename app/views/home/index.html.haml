@@ -7,7 +7,9 @@
   .alert.alert-success= notice
 - if @utilities.blank?
   .well.well-sm
-    Welcome to Utilitizer! This application is a powerful tool that allows you to pay all of your online bills on one, single site. You have signed in with the following email address: On your left, you’ll see several tabs.
+    Welcome to Utilitizer! This application is a powerful tool that allows you to pay all of your online bills on one, single site. You have signed in with the following email address: 
+    %b #{current_user.email}.
+    On your left, you’ll see several tabs.
     %ul
       %li 
         Use the 
