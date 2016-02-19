@@ -1,5 +1,0 @@
-App available at: http://utilities-app-dev.herokuapp.com
-
-Locally configured to run on port 3003. ie. localhost:3003
-
-me@jamesmklein.com for any questions
